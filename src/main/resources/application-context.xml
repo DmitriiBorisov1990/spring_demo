@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- bean definitions here -->
+    <bean class="com.borisov.hero.xml.Sword" id="sword-1" name="sword">
+        <constructor-arg value="Просто меч"/>
+    </bean>
+    <bean class="com.borisov.hero.xml.Axe" id="axe-1" name="axe">
+        <constructor-arg value="Просто топор"/>
+    </bean>
+    <bean class="com.borisov.hero.xml.Hero" name="my_hero" id="hero-1">
+        <constructor-arg value="Boromir"/>
+        <!--<constructor-arg ref="sword-1"/>-->
+        <constructor-arg>
+            <list>
+                <ref bean="sword"/>
+                <ref bean="axe-1"/>
+            </list>
+        </constructor-arg>
+    </bean>
+</beans>
