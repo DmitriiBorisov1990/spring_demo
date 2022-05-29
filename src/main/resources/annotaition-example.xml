@@ -12,5 +12,5 @@
         <constructor-arg value="Просто топор"/>
     </bean>
     <context:annotation-config/>
-    <context:component-scan base-package="com.borisov.hero.ano"/>
+    <context:component-scan base-package="com.borisov.hero"/>
 </beans>

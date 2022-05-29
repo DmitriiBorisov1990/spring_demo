@@ -1,5 +1,6 @@
 package com.borisov.hero.config;
 
+import com.borisov.dao.UserDao;
 import com.borisov.hero.Weapon;
 import com.borisov.hero.ano.AxeAno;
 import com.borisov.hero.ano.HeroAno;
@@ -10,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
 import java.util.List;
 
 @Configuration
-@ComponentScan("com.borisov.ano")
+@ComponentScan("com.borisov")
 public class HeroConfig {
 
     @Bean
@@ -26,5 +27,10 @@ public class HeroConfig {
     @Bean("lego")
     public HeroAno legolas(String name, List<Weapon> weapons){
         return new HeroAno("Леголас",weapons);
+    }
+
+    @Bean("allUser")
+    public UserDao getAllUser(){
+        return new UserDao();
     }
 }

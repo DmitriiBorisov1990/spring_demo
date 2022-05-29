@@ -11,10 +11,11 @@ import org.springframework.stereotype.Component;
 @Component
 public class SwordAno implements Weapon {
 
-    @Autowired()
-    private String name;
+    private final String name;
 
-    public SwordAno(){}
+    public SwordAno(String name){
+        this.name = name;
+    }
 
     @Override
     public int getDamage() {
