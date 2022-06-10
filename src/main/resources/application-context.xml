@@ -1,23 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
-    <!-- bean definitions here -->
-    <bean class="com.borisov.hero.xml.Sword" id="sword-1" name="sword">
-        <constructor-arg value="Просто меч"/>
-    </bean>
-    <bean class="com.borisov.hero.xml.Axe" id="axe-1" name="axe">
-        <constructor-arg value="Просто топор"/>
-    </bean>
-    <bean class="com.borisov.hero.xml.Hero" name="my_hero" id="hero-1">
-        <constructor-arg value="Boromir"/>
-        <!--<constructor-arg ref="sword-1"/>-->
-        <constructor-arg>
-            <list>
-                <ref bean="sword"/>
-                <ref bean="axe-1"/>
-            </list>
-        </constructor-arg>
+    <context:annotation-config/>
+    <context:component-scan base-package="com.borisov"/>
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="${db.driverClassName}"/>
+        <property name="url" value="${db.url}"/>
+        <property name="username" value="${db.username}"/>
+        <property name="password" value="${db.password}"/>
     </bean>
 </beans>
